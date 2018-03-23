@@ -19,9 +19,17 @@ public class PlayerContloreller : MonoBehaviour {
     {
         float moveHorizonantal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
+        
         Vector3 movement = new Vector3(moveHorizonantal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * speed);    	
+        rb.AddForce(movement * speed);
+        
+        print(Input.GetAxis("Vertical"));
+        print(Input.GetAxis("Horizontal"));
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            movement = new Vector3(moveHorizonantal, 6.0f, moveVertical);
+            rb.AddForce(movement * speed);
+        }
     }
 }
